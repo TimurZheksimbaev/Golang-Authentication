@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"errors"
 	"fmt"
 	"time"
 
@@ -40,7 +41,7 @@ func GenerateToken(payload TokenPayload) (string, error) {
 func ValidateToken(token string, signedKey string) (any, error) {
 	tok, err := jwt.Parse(token, func(jwtToken *jwt.Token) (any, error) {
 		if _, ok := jwtToken.Method.(*jwt.SigningMethodHMAC); !ok {
-			return nil, fmt.Errorf("Unexpected method %s", jwtToken.Header["alg"])
+			return nil, fmt.Errorf("unexpected method %s", jwtToken.Header["alg"])
 		}
 		return []byte(signedKey), nil
 	})
@@ -49,7 +50,7 @@ func ValidateToken(token string, signedKey string) (any, error) {
 	}
 	claim, ok := tok.Claims.(jwt.MapClaims)
 	if !ok  || !tok.Valid {
-		return nil, TokenError("Invalid token claims", fmt.Errorf("wrong claim %s", ok))
+		return nil, TokenError("Invalid token claims", errors.New("wrong claim"))
 	}
 	return claim["sub"], nil
 }
