@@ -2,9 +2,6 @@ package main
 
 import (
 	"fmt"
-	"net/http"
-	"time"
-
 	"github.com/TimurZheksimbaev/Golang-auth/config"
 	"github.com/TimurZheksimbaev/Golang-auth/controllers"
 	"github.com/TimurZheksimbaev/Golang-auth/models"
