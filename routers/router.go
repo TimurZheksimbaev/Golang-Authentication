@@ -4,7 +4,6 @@ import (
 	"net/http"
 
 	"github.com/TimurZheksimbaev/Golang-auth/controllers"
-	// "github.com/TimurZheksimbaev/Golang-auth/middleware"
 	"github.com/TimurZheksimbaev/Golang-auth/storage"
 	"github.com/gin-gonic/gin"
 )
