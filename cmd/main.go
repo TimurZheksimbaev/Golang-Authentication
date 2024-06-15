@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+
 	"github.com/TimurZheksimbaev/Golang-auth/config"
 	"github.com/TimurZheksimbaev/Golang-auth/controllers"
 	"github.com/TimurZheksimbaev/Golang-auth/models"
