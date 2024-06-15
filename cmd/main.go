@@ -41,7 +41,6 @@ func main() {
 	// 	WriteTimeout:   10 * time.Second,
 	// 	MaxHeaderBytes: 1 << 20,
 	// }
-
-	utils.LogExit(router.Run(appConfig.ServerHost+":"+fmt.Sprint(appConfig.ServerPort)))
+	utils.LogExit(router.Run(appConfig.ServerHost+":"+"9998"))
 }
 
