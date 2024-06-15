@@ -12,10 +12,13 @@ import (
 	"github.com/TimurZheksimbaev/Golang-auth/services"
 	"github.com/TimurZheksimbaev/Golang-auth/storage"
 	"github.com/TimurZheksimbaev/Golang-auth/utils"
+	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
 )
 
 func main() {
+
+	gin.SetMode(gin.ReleaseMode)
 	// config
 	appConfig, err := config.LoadEnv()
 	utils.LogExit(err)
