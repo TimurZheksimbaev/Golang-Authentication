@@ -34,13 +34,14 @@ func main() {
 	usersController := controllers.NewUsersController(storage)
 
 	router := routers.NewRouter(*authController, storage, *usersController)
-	// server := &http.Server{
-	// 	Addr:           appConfig.ServerHost + ":" + fmt.Sprint(appConfig.ServerPort),
-	// 	Handler:        router,
-	// 	ReadTimeout:    10 * time.Second,
-	// 	WriteTimeout:   10 * time.Second,
-	// 	MaxHeaderBytes: 1 << 20,
-	// }
-	utils.LogExit(router.Run("localhost:9998"))
+	server := &http.Server{
+		Addr:           appConfig.ServerHost + ":" + fmt.Sprint(appConfig.ServerPort),
+		Handler:        router,
+		ReadTimeout:    10 * time.Second,
+		WriteTimeout:   10 * time.Second,
+		MaxHeaderBytes: 1 << 20,
+	}
+
+	utils.LogExit(server.ListenAndServe())
 }
 

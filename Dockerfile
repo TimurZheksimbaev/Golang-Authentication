@@ -8,6 +8,11 @@ RUN go mod download
 
 COPY . .
 
-# RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
+EXPOSE 9998
 
-CMD ["go", "run", "cmd/main.go"]
+RUN go build -o main ./cmd/main.go
+
+CMD ["./main"]
+
+
+
