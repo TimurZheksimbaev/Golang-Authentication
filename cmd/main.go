@@ -1,7 +1,9 @@
 package main
 
 import (
-
+	"fmt"
+	"net/http"
+	"time"
 	"github.com/TimurZheksimbaev/Golang-auth/config"
 	"github.com/TimurZheksimbaev/Golang-auth/controllers"
 	"github.com/TimurZheksimbaev/Golang-auth/models"
@@ -15,7 +17,7 @@ import (
 
 func main() {
 
-	gin.SetMode(gin.ReleaseMode)
+	gin.SetMode(gin.DebugMode)
 	// config
 	appConfig, err := config.LoadEnv()
 	utils.LogExit(err)
